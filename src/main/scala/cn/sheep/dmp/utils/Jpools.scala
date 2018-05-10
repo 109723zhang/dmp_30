@@ -8,7 +8,9 @@ import redis.clients.jedis.{Jedis, JedisPool}
   */
 object Jpools {
 
-
+    /**
+      * 初始化一个池子
+      */
     private lazy val jedisPool = new JedisPool(ConfigHandler.redisHost, ConfigHandler.redisPort)
 
     def getJedis: Jedis = {
