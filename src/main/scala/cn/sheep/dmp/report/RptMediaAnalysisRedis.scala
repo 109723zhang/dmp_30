@@ -26,7 +26,7 @@ object RptMediaAnalysisRedis {
 
         rawDataFrame.registerTempTable("log")
 
-
+        // 注册一个自定义的udf
         sQLContext.udf.register("NotEmptyAppName",  RptKpiTools.notEmptyAppName)
 
         val result = sQLContext
