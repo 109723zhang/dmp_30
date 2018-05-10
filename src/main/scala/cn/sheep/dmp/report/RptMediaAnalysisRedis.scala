@@ -45,6 +45,7 @@ object RptMediaAnalysisRedis {
               |from log group by NotEmptyAppName(appid, appname)
             """.stripMargin)
 
+        // 将结果保存到数据库中
         MySQLHandler.save2db(result, ConfigHandler.mediaAnalysisTableName)
 
         sc.stop()
