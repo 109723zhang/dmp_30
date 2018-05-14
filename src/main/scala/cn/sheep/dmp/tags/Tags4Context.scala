@@ -47,8 +47,9 @@ object Tags4Context {
             val kwTag = Tags4KeyWords.makeTags(row, stopWordsDictBT)
 
             // 商圈标签的实现
+            val bsTag = Tags4Business.makeTags(row)
 
-            (userId, adTag ++ areaTag ++ deviceTag ++ appTag ++ kwTag)
+            (userId, adTag ++ areaTag ++ deviceTag ++ appTag ++ kwTag ++ bsTag)
         }).reduceByKey {
             (list1, list2) => (list1 ::: list2).groupBy(_._1).mapValues(_.foldLeft[Int](0)(_ + _._2)).toList
         }
